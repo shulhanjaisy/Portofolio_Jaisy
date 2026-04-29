@@ -2,251 +2,276 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portofolio Jaisy Shulhan Hatra - Siswa SIJA & IoT Enthusiast">
-    <title>Jaisy Shulhan Hatra | Portofolio SIJA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="Portofolio Jaisy Shulhan Hatra - Full-stack Developer & IoT Specialist. Siswa SIJA SMKN 9 Kota Bekasi.">
+    <meta name="theme-color" content="#0a0c10">
+    <title>Jaisy Shulhan Hatra | Professional Portfolio</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --primary-dark: #121416;
-            --accent-blue: #0dcaf0;
+            --bg-dark: #0a0c10;
+            --accent: #00d2ff;
+            --text-main: #ffffff;
+            --text-desc: #e0e0e0;
+            --glass: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #fcfcfc;
-            color: #333;
-            scroll-behavior: smooth;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            line-height: 1.6;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
+        /* Navbar Optimization */
+        .navbar {
+            background: rgba(10, 12, 16, 0.85);
+            backdrop-filter: blur(12px) saturate(180%);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass);
+            padding: 15px 0;
+        }
+
+        /* Responsive Hero */
         .hero-section {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, #2c3136 100%);
-            color: white;
-            padding: 120px 15px 100px;
+            padding: 140px 0 60px;
+            background: radial-gradient(circle at top right, rgba(0, 210, 255, 0.12), transparent 40%);
         }
 
-        .code-font {
-            font-family: 'JetBrains+Mono', monospace;
-            font-size: 0.9rem;
-        }
-
-        .card {
-            border: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border-radius: 15px;
-            overflow: hidden;
-            height: 100%;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-        }
-
-        .project-img {
-            width: 100%;
-            height: auto;
-            aspect-ratio: 16/9;
+        .img-profile-main {
+            width: clamp(150px, 25vw, 200px);
+            aspect-ratio: 1/1;
+            border-radius: 30%;
             object-fit: cover;
-            background-color: #e9ecef;
+            border: 3px solid var(--accent);
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.2);
+            transition: 0.4s ease;
         }
 
-        /* PERBAIKAN ROTASI SERTIFIKAT (ARAH BERLAWANAN) */
-        .cert-container {
-            background-color: #f0f0f0;
-            height: 420px; 
+        .img-profile-main:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        .section-tag {
+            color: var(--accent);
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+
+        /* Bento Grid System */
+        .bento-card {
+            background: var(--glass);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 24px;
+            height: 100%;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .bento-card:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .exp-badge {
+            background: rgba(0, 210, 255, 0.1);
+            color: var(--accent);
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            width: fit-content;
+            margin-bottom: 12px;
+        }
+
+        /* Project Display */
+        .project-preview {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            background: #1a1d23;
+        }
+
+        .btn-visit {
+            background: var(--accent);
+            color: #000 !important;
+            font-weight: 800;
+            border-radius: 10px;
+            padding: 10px 20px;
+            text-decoration: none;
+            text-align: center;
+            transition: 0.3s;
+            margin-top: auto;
+            width: 100%;
+        }
+
+        .btn-visit:active {
+            transform: scale(0.95);
+        }
+
+        /* Certification Optimization */
+        .cert-frame {
+            background: #161a20;
+            aspect-ratio: 4/3;
+            border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            padding: 20px;
+            margin-bottom: 15px;
         }
 
-        .cert-img {
-            transform: rotate(-90deg); /* Diputar balik agar tegak */
-            max-width: 420px; 
+        .cert-img-rotated {
+            transform: rotate(-90deg);
+            width: 85%;
             height: auto;
-            object-fit: contain;
-        }
-
-        .img-profile {
-            width: 100%;
-            max-width: 400px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-
-        .skill-badge {
-            background: #fff;
-            border: 1px solid #dee2e6;
-            padding: 8px 16px;
-            border-radius: 8px;
-            display: inline-block;
-            margin: 4px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        section { padding: 80px 0; }
-
-        .section-title {
-            font-weight: 700;
-            margin-bottom: 50px;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            width: 40px;
-            height: 3px;
-            background: var(--accent-blue);
-            position: absolute;
-            bottom: -12px;
-            left: 50%;
-            transform: translateX(-50%);
         }
 
         footer {
-            background-color: var(--primary-dark);
-            color: #888;
-            padding: 40px 15px;
+            padding: 60px 0 40px;
+            border-top: 1px solid var(--glass);
         }
 
-        @media (max-width: 576px) {
-            .btn-contact { width: 100%; }
-            .cert-container { height: 350px; }
-            .cert-img { max-width: 350px; }
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .hero-section { padding-top: 100px; }
+            .display-4 { font-size: 2rem; }
+            .bento-card { padding: 20px; }
         }
     </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
-        <div class="container">
-            <a class="navbar-brand fw-bold code-font" href="#">JAISY.DEV</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto text-center mt-3 mt-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="#about">Tentang</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projects">Proyek</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Kontak</a></li>
-                </ul>
-            </div>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container px-4">
+            <a class="navbar-brand fw-bold" href="#">JAISY<span style="color: var(--accent);">.</span></a>
+            <a href="mailto:shulhanjaisy5@gmail.com" class="btn btn-sm btn-outline-info rounded-pill px-3 fw-bold">Contact</a>
         </div>
     </nav>
 
     <header class="hero-section text-center">
-        <div class="container">
-            <h1 class="fw-bold mb-3">Jaisy Shulhan Hatra</h1>
-            <p class="lead code-font text-info mb-4">> Junior Full-Stack Developer & IoT Enthusiast_</p>
-            <p class="opacity-75 mx-auto px-2" style="max-width: 600px;">
-                Siswa SIJA yang berfokus pada pengembangan integrasi Software Web dan Hardware IoT.
+        <div class="container px-4">
+            <img src="profil.jpg" class="img-profile-main mb-4" alt="Jaisy Shulhan Hatra" loading="eager">
+            <p class="section-tag mb-2">Student & Developer</p>
+            <h1 class="display-4 fw-bold mb-3">Jaisy Shulhan Hatra</h1>
+            <p class="desc-text mx-auto mb-4" style="max-width: 600px;">
+                Fokus pada pengembangan <span class="text-info fw-bold">Full-stack Web</span> dan sistem <span class="text-info fw-bold">IoT</span>. Siswa tingkat akhir SIJA di SMKN 9 Kota Bekasi.
             </p>
-            <div class="mt-4">
-                <a href="#projects" class="btn btn-info btn-lg px-5 fw-bold text-white shadow-sm">Lihat Proyek</a>
-            </div>
         </div>
     </header>
 
-    <section id="about" class="container">
-        <div class="row align-items-center text-center text-lg-start">
-            <div class="col-lg-6 mb-5 mb-lg-0">
-                <h2 class="fw-bold mb-4">Profil & Keahlian</h2>
-                <p class="text-muted mb-4">
-                    Saya berdedikasi menciptakan solusi teknologi yang fungsional. Dengan latar belakang SIJA, saya menguasai dasar-dasar jaringan hingga pemrograman full-stack.
-                </p>
-                <div class="tech-stack mb-4">
-                    <span class="skill-badge shadow-sm">PHP & MySQL</span>
-                    <span class="skill-badge shadow-sm">JavaScript</span>
-                    <span class="skill-badge shadow-sm">Arduino / ESP32</span>
-                    <span class="skill-badge shadow-sm">Linux Config</span>
-                    <span class="skill-badge shadow-sm">MQTT Protocol</span>
-                </div>
-            </div>
-            <div class="col-lg-5 offset-lg-1">
-                <img src="profil.jpg" alt="Jaisy Shulhan Hatra" class="img-profile img-fluid">
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="bg-light text-center">
-        <div class="container">
-            <h2 class="section-title">Hasil Proyek</h2>
-            <div class="row g-4 text-start mt-2 justify-content-center">
-                <div class="col-md-6 col-lg-5">
-                    <div class="card">
-                        <img src="belalang.png" class="card-img-top project-img" alt="Proyek Web Rental Mobil">
-                        <div class="card-body p-4 text-center text-md-start">
-                            <a href="https://belalangrent.my.id/"><h5 class="fw-bold">Web Rental Mobil</h5></a>
-                            <p class="text-muted small">Sistem manajemen armada dan booking online yang dikembangkan menggunakan PHP dan MySQL.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-5">
-                    <div class="card">
-                        <img src="IoT.png" class="card-img-top project-img" alt="Proyek IoT Dashboard">
-                        <div class="card-body p-4 text-center text-md-start">
-                            <a href="https://kebletech.smkn9kotabekasi.sch.id/"><h5 class="fw-bold">IoT Monitoring Dashboard</h5></a>
-                            <p class="text-muted small">Visualisasi data sensor secara real-time yang terintegrasi melalui protokol komunikasi MQTT.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="container text-center">
-        <h2 class="section-title">Sertifikasi</h2>
-        <div class="row g-4 justify-content-center text-start">
-            
-            <div class="col-md-5">
-                <div class="card">
-                    <div class="cert-container">
-                        <img src="serti_ksm.jpg" class="cert-img" alt="Sertifikat KSM">
-                    </div>
-                    <div class="card-body p-4">
-                        <h6 class="text-primary fw-bold mb-1">KOMPETISI SAINS MADRASAH</h6>
-                        <h5 class="fw-bold mb-2">Sertifikat KSM</h5>
-                        <p class="text-muted small">Juara 1 Bidang Matematika Terintegrasi Tingkat Kabupaten/Kota.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-5">
-                <div class="card border-info border-1">
-                    <div class="cert-container">
-                        <img src="serti_osis.jpg" class="cert-img" alt="Sertifikat OSIS">
-                    </div>
-                    <div class="card-body p-4">
-                        <h6 class="text-success fw-bold mb-1">PENGURUS OSIS</h6>
-                        <h5 class="fw-bold mb-2">Sertifikat Pengurus OSIS</h5>
-                        <p class="text-muted small">Piagam penghargaan atas dedikasi sebagai pengurus OSIS SMK Negeri 9 Kota Bekasi.</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <section id="contact" class="bg-light text-center">
+    <section class="py-5">
         <div class="container px-4">
-            <h2 class="section-title">Mari Terhubung</h2>
-            <p class="text-muted mb-5">Ingin berkolaborasi atau bertanya seputar proyek? Hubungi saya melalui email:</p>
-            <a href="mailto:shulhanjaisy5@gmail.com" class="btn btn-dark btn-lg px-5 shadow btn-contact fw-bold">Kirim Email ke Jaisy</a>
+            <div class="row g-3">
+                <div class="col-6 col-md-3">
+                    <div class="bento-card text-center py-4">
+                        <h6 class="fw-bold mb-0">IoT</h6>
+                        <small class="opacity-50">ESP32 & HTTP</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="bento-card text-center py-4">
+                        <h6 class="fw-bold mb-0">Web</h6>
+                        <small class="opacity-50">PHP Native</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="bento-card text-center py-4">
+                        <h6 class="fw-bold mb-0">Linux</h6>
+                        <small class="opacity-50">antiX Server</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="bento-card text-center py-4">
+                        <h6 class="fw-bold mb-0">UI/UX</h6>
+                        <small class="opacity-50">Figma</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-5">
+        <div class="container px-4">
+            <div class="mb-5">
+                <p class="section-tag mb-1">Portfolio</p>
+                <h2 class="fw-bold">Proyek Unggulan</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="bento-card">
+                        <img src="rental.jpg" class="project-preview" alt="Belalang Rent" loading="lazy">
+                        <div class="exp-badge">PHP Native & Custom CSS</div>
+                        <h4 class="fw-bold">Belalang Rent</h4>
+                        <p class="desc-text small mb-4">Sistem manajemen persewaan mobil yang menangani armada, booking online, dan database transaksi secara mandiri.</p>
+                        <a href="https://belalangrent.my.id/" target="_blank" class="btn-visit">Kunjungi Situs</a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="bento-card">
+                        <img src="iot.jpg" class="project-preview" alt="KebleTech" loading="lazy">
+                        <h4 class="fw-bold">KebleTech Dashboard</h4>
+                        <div class="exp-badge">IoT & HTTP Protocol</div>
+                        <p class="desc-text small mb-4">Monitoring sensor real-time yang menghubungkan perangkat ESP32 ke web server untuk data suhu dan kelembaban.</p>
+                        <a href="https://kebletech.smkn9kotabekasi.sch.id/" target="_blank" class="btn-visit">Buka Dashboard</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container px-4">
+            <div class="mb-5">
+                <p class="section-tag mb-1">Achievements</p>
+                <h2 class="fw-bold">Sertifikasi</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="bento-card">
+                        <div class="cert-frame">
+                            <img src="serti_ksm.jpg" class="cert-img-rotated" alt="KSM IPA" loading="lazy">
+                        </div>
+                        <h5 class="fw-bold mb-1">Juara 1 KSM</h5>
+                        <p class="small opacity-50">Bidang IPA Terintegrasi</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="bento-card">
+                        <div class="cert-frame">
+                            <img src="serti_osis.jpg" class="cert-img-rotated" alt="OSIS" loading="lazy">
+                        </div>
+                        <h5 class="fw-bold mb-1">Pengurus OSIS</h5>
+                        <p class="small opacity-50">Periode 2024/2025</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <footer class="text-center">
-        <div class="container">
-            <p class="mb-2 fw-bold text-white">Jaisy Shulhan Hatra</p>
-            <p class="small mb-0 opacity-50">SIJA Graduate | Portfolio &copy; 2026</p>
+        <div class="container px-4">
+            <p class="small opacity-50 mb-2">Tertarik bekerja sama?</p>
+            <a href="mailto:shulhanjaisy5@gmail.com" class="text-info fw-bold text-decoration-none">shulhanjaisy5@gmail.com</a>
+            <div class="mt-4 small opacity-25">&copy; 2026 Jaisy Shulhan Hatra</div>
         </div>
     </footer>
 
