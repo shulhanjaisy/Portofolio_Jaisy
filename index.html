@@ -4,19 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <meta name="description" content="Portofolio Jaisy Shulhan Hatra - Full-stack Developer & IoT Specialist. Siswa SIJA SMKN 9 Kota Bekasi.">
-    <meta name="theme-color" content="#0a0c10">
+    <meta name="theme-color" content="#0f111a">
     <title>Jaisy Shulhan Hatra | Professional Portfolio</title>
     
+    <!-- CSS Dependencies -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-dark: #0a0c10;
-            --accent: #00d2ff;
+            --bg-dark: #0f111a; 
+            --bg-card: #161925; 
+            --accent: #00e5ff; 
+            --accent-purple: #9d4edd; 
             --text-main: #ffffff;
-            --text-desc: #e0e0e0;
-            --glass: rgba(255, 255, 255, 0.08);
+            --text-desc: #cbd5e1; 
+            --glass: rgba(255, 255, 255, 0.05);
         }
 
         * {
@@ -35,31 +38,35 @@
 
         /* Navbar Optimization */
         .navbar {
-            background: rgba(10, 12, 16, 0.85);
+            background: rgba(15, 17, 26, 0.85);
             backdrop-filter: blur(12px) saturate(180%);
             -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--glass);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             padding: 15px 0;
         }
 
-        /* Responsive Hero */
+        /* Hero Area with Clean Ambient Lighting */
         .hero-section {
-            padding: 140px 0 60px;
-            background: radial-gradient(circle at top right, rgba(0, 210, 255, 0.12), transparent 40%);
+            padding: 150px 0 70px;
+            background: 
+                radial-gradient(circle at 90% 10%, rgba(0, 229, 255, 0.15), transparent 40%),
+                radial-gradient(circle at 10% 90%, rgba(157, 78, 221, 0.12), transparent 40%);
         }
 
         .img-profile-main {
-            width: clamp(150px, 25vw, 200px);
+            width: clamp(140px, 22vw, 180px);
             aspect-ratio: 1/1;
             border-radius: 30%;
             object-fit: cover;
             border: 3px solid var(--accent);
-            box-shadow: 0 0 30px rgba(0, 210, 255, 0.2);
-            transition: 0.4s ease;
+            box-shadow: 0 0 35px rgba(0, 229, 255, 0.25);
+            transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
         }
 
         .img-profile-main:hover {
             transform: scale(1.05) rotate(2deg);
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 35px rgba(157, 78, 221, 0.3);
         }
 
         .section-tag {
@@ -71,26 +78,28 @@
             font-size: 0.8rem;
         }
 
-        /* Bento Grid System */
+        /* Optimized Bento Layout */
         .bento-card {
-            background: var(--glass);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 24px;
             padding: 24px;
             height: 100%;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s, box-shadow 0.3s;
+            will-change: transform; /* Hardware Acceleration */
         }
 
         .bento-card:hover {
-            background: rgba(255, 255, 255, 0.12);
             border-color: var(--accent);
             transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 229, 255, 0.1);
         }
 
         .exp-badge {
-            background: rgba(0, 210, 255, 0.1);
+            background: rgba(0, 229, 255, 0.1);
             color: var(--accent);
             padding: 4px 12px;
             border-radius: 8px;
@@ -100,61 +109,74 @@
             margin-bottom: 12px;
         }
 
-        /* Project Display */
+        .desc-text {
+            color: var(--text-desc);
+        }
+
+        /* Image Optimization & Speed Tactics */
         .project-preview {
             width: 100%;
-            height: 200px;
+            height: 190px;
             object-fit: cover;
-            border-radius: 12px;
+            border-radius: 14px;
             margin-bottom: 15px;
-            background: #1a1d23;
+            background: #1e2235;
+            aspect-ratio: 16/9; /* Mencegah Layout Shift */
         }
 
         .btn-visit {
-            background: var(--accent);
+            background: linear-gradient(135deg, var(--accent), #00b0ff);
             color: #000 !important;
             font-weight: 800;
-            border-radius: 10px;
-            padding: 10px 20px;
+            border-radius: 12px;
+            padding: 12px 20px;
             text-decoration: none;
             text-align: center;
-            transition: 0.3s;
+            transition: box-shadow 0.3s, transform 0.1s;
             margin-top: auto;
             width: 100%;
+            border: none;
+        }
+
+        .btn-visit:hover {
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
         }
 
         .btn-visit:active {
-            transform: scale(0.95);
+            transform: scale(0.97);
         }
 
-        /* Certification Optimization */
+        /* Certificate Visual Grid Fix */
         .cert-frame {
-            background: #161a20;
-            aspect-ratio: 4/3;
-            border-radius: 15px;
+            background: #1e2235;
+            aspect-ratio: 4/3; /* Memastikan frame seragam di semua ukuran device */
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
             margin-bottom: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .cert-img-rotated {
             transform: rotate(-90deg);
-            width: 85%;
+            width: 82%;
             height: auto;
         }
 
         footer {
-            padding: 60px 0 40px;
-            border-top: 1px solid var(--glass);
+            padding: 70px 0 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            background: linear-gradient(to top, rgba(157, 78, 221, 0.03), transparent);
         }
 
-        /* Mobile Adjustments */
+        /* Enhanced Mobile Optimization */
         @media (max-width: 768px) {
-            .hero-section { padding-top: 100px; }
-            .display-4 { font-size: 2rem; }
+            .hero-section { padding-top: 110px; }
+            .display-4 { font-size: 2.2rem; }
             .bento-card { padding: 20px; }
+            .project-preview { height: 160px; }
         }
     </style>
 </head>
@@ -167,59 +189,63 @@
         </div>
     </nav>
 
+    <!-- Hero -->
     <header class="hero-section text-center">
         <div class="container px-4">
-            <img src="profil.jpg" class="img-profile-main mb-4" alt="Jaisy Shulhan Hatra" loading="eager">
+            <!-- Gambar profile utama di-load instan menggunakan loading="eager" -->
+            <img src="profil.jpg" class="img-profile-main mb-4" alt="Jaisy Shulhan Hatra" loading="eager" decoding="sync">
             <p class="section-tag mb-2">Student & Developer</p>
-            <h1 class="display-4 fw-bold mb-3">Jaisy Shulhan Hatra</h1>
-            <p class="desc-text mx-auto mb-4" style="max-width: 600px;">
+            <h1 class="display-4 fw-bold mb-3" style="background: linear-gradient(to right, #fff, var(--text-desc)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Jaisy Shulhan Hatra</h1>
+            <p class="desc-text mx-auto mb-4" style="max-width: 600px; font-size: 1.05rem;">
                 Fokus pada pengembangan <span class="text-info fw-bold">Full-stack Web</span> dan sistem <span class="text-info fw-bold">IoT</span>. Siswa tingkat akhir SIJA di SMKN 9 Kota Bekasi.
             </p>
         </div>
     </header>
 
-    <section class="py-5">
+    <!-- Tech Stack Quick View -->
+    <section class="py-4">
         <div class="container px-4">
             <div class="row g-3">
                 <div class="col-6 col-md-3">
                     <div class="bento-card text-center py-4">
-                        <h6 class="fw-bold mb-0">IoT</h6>
-                        <small class="opacity-50">ESP32 & HTTP</small>
+                        <h6 class="fw-bold mb-0" style="color: var(--accent);">IoT</h6>
+                        <small class="opacity-70">ESP32 & HTTP</small>
                     </div>
                 </div>
                 <div class="col-6 col-md-3">
                     <div class="bento-card text-center py-4">
-                        <h6 class="fw-bold mb-0">Web</h6>
-                        <small class="opacity-50">PHP Native</small>
+                        <h6 class="fw-bold mb-0" style="color: var(--accent-purple);">Web</h6>
+                        <small class="opacity-70">PHP Native</small>
                     </div>
                 </div>
                 <div class="col-6 col-md-3">
                     <div class="bento-card text-center py-4">
-                        <h6 class="fw-bold mb-0">Linux</h6>
-                        <small class="opacity-50">antiX Server</small>
+                        <h6 class="fw-bold mb-0" style="color: var(--accent);">Linux</h6>
+                        <small class="opacity-70">antiX Server</small>
                     </div>
                 </div>
                 <div class="col-6 col-md-3">
                     <div class="bento-card text-center py-4">
-                        <h6 class="fw-bold mb-0">UI/UX</h6>
-                        <small class="opacity-50">Figma</small>
+                        <h6 class="fw-bold mb-0" style="color: var(--accent-purple);">UI/UX</h6>
+                        <small class="opacity-70">Figma</small>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Projects Portfolio -->
     <section id="projects" class="py-5">
         <div class="container px-4">
             <div class="mb-5">
                 <p class="section-tag mb-1">Portfolio</p>
-                <h2 class="fw-bold">Proyek Unggulan</h2>
+                <h2 class="fw-bold">Proyek Utama</h2>
             </div>
             <div class="row g-4">
                 <div class="col-md-6">
                     <div class="bento-card">
-                        <img src="rental.jpg" class="project-preview" alt="Belalang Rent" loading="lazy">
-                        <div class="exp-badge">PHP Native & Custom CSS</div>
+                        <img src="rental.jpg" class="project-preview" alt="Belalang Rent" loading="lazy" decoding="async">
+                        <div class="exp-badge" style="background: rgba(157, 78, 221, 0.15); color: #d4a373; border: 1px solid rgba(157, 78, 221, 0.3);">PHP Native & Custom CSS</div>
                         <h4 class="fw-bold">Belalang Rent</h4>
                         <p class="desc-text small mb-4">Sistem manajemen persewaan mobil yang menangani armada, booking online, dan database transaksi secara mandiri.</p>
                         <a href="https://belalangrent.my.id/" target="_blank" class="btn-visit">Kunjungi Situs</a>
@@ -227,7 +253,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="bento-card">
-                        <img src="iot.jpg" class="project-preview" alt="KebleTech" loading="lazy">
+                        <img src="iot.jpg" class="project-preview" alt="KebleTech" loading="lazy" decoding="async">
                         <h4 class="fw-bold">KebleTech Dashboard</h4>
                         <div class="exp-badge">IoT & HTTP Protocol</div>
                         <p class="desc-text small mb-4">Monitoring sensor real-time yang menghubungkan perangkat ESP32 ke web server untuk data suhu dan kelembaban.</p>
@@ -238,29 +264,43 @@
         </div>
     </section>
 
+    <!-- Achievements / Certifications -->
     <section class="py-5">
         <div class="container px-4">
             <div class="mb-5">
                 <p class="section-tag mb-1">Achievements</p>
-                <h2 class="fw-bold">Sertifikasi</h2>
+                <h2 class="fw-bold">Sertifikasi & Penghargaan</h2>
             </div>
             <div class="row g-4">
-                <div class="col-md-6">
+                <!-- Slot 1 -->
+                <div class="col-md-4">
                     <div class="bento-card">
                         <div class="cert-frame">
-                            <img src="serti_ksm.jpg" class="cert-img-rotated" alt="KSM IPA" loading="lazy">
+                            <img src="serti_ksm.jpg" class="cert-img-rotated" alt="KSM IPA" loading="lazy" decoding="async">
                         </div>
-                        <h5 class="fw-bold mb-1">Juara 1 KSM</h5>
-                        <p class="small opacity-50">Bidang IPA Terintegrasi</p>
+                        <h5 class="fw-bold mb-1 fs-6">Juara 1 KSM</h5>
+                        <p class="small opacity-70 mb-0">Bidang IPA Terintegrasi</p>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <!-- Slot 2 -->
+                <div class="col-md-4">
                     <div class="bento-card">
                         <div class="cert-frame">
-                            <img src="serti_osis.jpg" class="cert-img-rotated" alt="OSIS" loading="lazy">
+                            <img src="serti_osis.jpg" class="cert-img-rotated" alt="OSIS" loading="lazy" decoding="async">
                         </div>
-                        <h5 class="fw-bold mb-1">Pengurus OSIS</h5>
-                        <p class="small opacity-50">Periode 2024/2025</p>
+                        <h5 class="fw-bold mb-1 fs-6">Pengurus OSIS</h5>
+                        <p class="small opacity-70 mb-0">Periode 2024/2025</p>
+                    </div>
+                </div>
+                <!-- Slot 3: Teaching Factory -->
+                <div class="col-md-4">
+                    <div class="bento-card">
+                        <div class="cert-frame">
+                            <!-- Ganti tefa.jpg dengan nama file gambar sertifikat barumu jika berbeda -->
+                            <img src="tefa.jpg" class="cert-img-rotated" alt="Sertifikat Teaching Factory" loading="lazy" decoding="async">
+                        </div>
+                        <h5 class="fw-bold mb-1 fs-6">Sertifikat Teaching Factory</h5>
+                        <p class="small opacity-70 mb-0">Sinkronisasi kurikulum berbasis proyek riil industri.</p>
                     </div>
                 </div>
             </div>
@@ -269,9 +309,9 @@
 
     <footer class="text-center">
         <div class="container px-4">
-            <p class="small opacity-50 mb-2">Tertarik bekerja sama?</p>
-            <a href="mailto:shulhanjaisy5@gmail.com" class="text-info fw-bold text-decoration-none">shulhanjaisy5@gmail.com</a>
-            <div class="mt-4 small opacity-25">&copy; 2026 Jaisy Shulhan Hatra</div>
+            <p class="small opacity-70 mb-2">Tertarik bekerja sama?</p>
+            <a href="mailto:shulhanjaisy5@gmail.com" class="text-info fw-bold text-decoration-none" style="font-size: 1.1rem; letter-spacing: 0.5px;">shulhanjaisy5@gmail.com</a>
+            <div class="mt-4 small opacity-30">&copy; 2026 Jaisy Shulhan Hatra</div>
         </div>
     </footer>
 
